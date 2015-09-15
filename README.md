@@ -3,5 +3,7 @@
 
 作者：邬畏畏(wuweiwei)
 
+更多组件：
+http://www.flybirdsoft.com/WUI
 
 
