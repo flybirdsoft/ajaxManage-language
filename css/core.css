@@ -1,0 +1,288 @@
+/*
+
+write by wuweiwei(邬畏畏)
+
+*/
+
+*{
+    font-family: "微软雅黑";
+}
+html,body{
+	height: 100%;
+}
+body{
+	margin:0;
+	padding: 0;
+	font-size: 12px;
+	background-color: #e1e6e9;
+}
+dl,dd,dt,ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.asyncAjax{
+	margin-left:20px;
+	float:right;
+	height: 50px;
+	margin-top: 10px;
+	display: block;
+	margin-right: 20px;
+}
+.language{
+	margin-left:20px;
+	float:right;
+	height: 50px;
+	margin-top: 10px;
+	display: block;
+	margin-right: 20px;
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.cb{
+	clear: both;
+}
+.report{
+	overflow: hidden;
+}
+
+/*侧边栏*/
+.report .side{
+	float: left;
+	width:280px;
+	height:100%;
+	background-color: #4479c0;
+	overflow: hidden;
+}
+.report .side dl{
+	height: 70px;
+	line-height: 70px;
+}
+.report .side dl dt{
+	height: 50px;
+	width: 30px;
+	float: right;
+	overflow: hidden;
+	margin-right: 20px;
+	padding-top: 20px;
+	cursor: pointer;
+}
+.report .side dl dt span{
+	height: 4px;
+	display: block;
+	margin-bottom: 5px;
+	background-color: #073677;
+}
+
+.report .side dl dd{
+	border-bottom: 1px solid #18519e;
+	background-color: #195eb9;
+	margin-bottom: 1px;
+	color: #FFF;
+	font-size: 14px;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.report .side dl dd:hover{
+	background-color: #3265a9;
+}
+
+
+
+
+
+
+/*主显示区*/
+.report .main{
+	height:100%;
+	overflow: hidden;
+	overflow-y:auto;
+}
+
+.report .main .container{
+	padding: 10px;
+}
+
+.report .main .topBar{
+	height: 70px;
+	line-height: 70px;
+	background-color: #18519e;
+	color:#FFF;
+}
+
+.report.main .topBar .logo{
+
+}
+
+
+.report .title{
+    font-size:24px; 
+    color:#45689a;
+    font-family: "幼圆"
+}
+
+.report .date dt{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.report .date i{
+	width:23px;
+	height:23px;
+	background-image: url(../images/report/icon-zoom.png);
+	display: block;
+	float: left;
+}
+.report .date h2{
+	font-size: 18px;
+	font-weight: normal;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+	margin-left:15px;
+	font-weight: bold;
+}
+
+.report .date dd{
+    border:1px solid #4479c0;
+    padding: 9px;
+    background-color: #c6dbf4;
+    height: 22px;
+    line-height: 22px;
+}
+
+.report .date dd .buttons{
+	margin-left: 40px;
+}
+.report .date dd .buttons span{
+	display: block;
+	float: left;
+	padding-left:10px;
+	padding-right: 10px;
+	padding-top:2px;
+	padding-bottom: 2px;
+	background-color: #4479c0;
+	font-size: 12px;
+	margin-right: 5px;
+	color: #FFF;
+	cursor: pointer;
+}
+
+.report .search{
+	border:1px solid #9bc2f6;
+	padding:20px;
+	margin-top:10px;
+	background-color: #ddebfd;
+	height: auto;
+}
+
+.report .search .closed{
+	height: 12px;
+	margin: 0 auto;
+	width: 100px;
+	text-align: center;
+	position: relative;
+	top:20px;
+	border:1px solid #9bc2f6;
+	background-color: #d0e1f7;
+	cursor: pointer;
+}
+.report .search .expand{
+	height: 12px;
+	margin: 0 auto;
+	width: 100px;
+	text-align: center;
+	position: relative;
+	top:20px;
+	border:1px solid #9bc2f6;
+	background-color: #d0e1f7;
+	cursor: pointer;
+}
+
+.report .search .expand span{
+	display: block;
+}
+
+.report .search .closed span{
+	display: block;
+	width:0;
+	height: 0;
+	border-top:5px solid #103b79;
+	border-left:5px solid transparent;
+	border-right:5px solid transparent;
+	background-color: #d0e1f7;
+	margin: 0 auto;
+	position: relative;
+	top:3px;
+}
+
+.report .dataTitle{
+	margin-top: 50px;
+	overflow: hidden;
+}
+.report .dataTitle i{
+	width:31px;
+	height:22px;
+	background-image: url(../images/report/icon-graph.png);
+	display: block;
+	float: left;
+}
+
+.report .dataTitle h2{
+	font-size: 18px;
+	font-weight: normal;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+	margin-left:15px;
+	font-weight: bold;
+}
+
+/*标签页面的样式 begin*/
+.wTab .Tabs{
+	border-bottom:1px solid #25528e;
+	height: 36px;
+	margin-top: 20px;
+}
+.wTab .Tabs li{
+	float: left;
+	margin-left: 20px;
+	height: 34px;
+	line-height: 34px;
+	padding-left: 22px;
+	padding-right: 22px;
+	font-size: 14px;
+	color:#25528e;
+	border:1px solid #25528e;
+	position: relative;
+	top:1px;
+	cursor: pointer;
+}
+
+.wTab .Tabs li.tab{
+	background-color: #a5cafa;
+}
+
+.wTab .Tabs li.tabH{
+	background-color: #dbe7f6;
+	position: relative;
+	z-index: 100;
+	position: relative;
+	top:2px;
+	border-bottom: none;
+	font-weight: bold;
+}
+
+.wTab .tabContent{
+	padding-top: 10px;
+}
+/*标签页面的样式 end */

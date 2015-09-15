@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/core.css" />
+
+</head>
+
+<body id="app" class="report">
+
+<div class="side">
+	<dl>
+		<dt>
+			<span></span>
+			<span></span>
+			<span></span>
+		</dt>
+		<dd class="cb">首页</dd>
+		<dd>语言国际化组件</dd>
+		<dd>Jquery ajax 异步管理组件</dd>
+		<dd>语言国际化组件</dd>
+		<dd>Jquery ajax 异步管理组件</dd>
+	</dl>
+</div>
+<!------------------------------------------------------------------------------>
+<!--main begin-->
+<div class="main">
+	<dl class="topBar">
+		<dt class="logo"></dt>
+		<dd class="topMenu">
+			<button class="language">切换语言(英文)</button>
+			<button class="asyncAjax">多个ajax异步管理,单击看看</button>
+		</dd>
+	</dl>
+	<div class="container"> <!--container begin-->
+		<!--page title begin-->
+		<h1 class="title" p-html="report.title"></h1>
+		<!--page title end-->
+
+		<!--筛选 begin --> 
+		<dl class="date">
+			<dt>
+				<i></i>
+				<h2 p-html="report.searchTitle"></h2>
+			</dt>
+			<dd>
+				 <label class="fl" p-html="report.searchCaption"></label>
+				 <div class="text fl">
+				 	<input type="input" name="" value=""/>
+				 </div>
+
+				 <div class="buttons fl">
+				 	<span p-html="report.buttons.titleA"></span>
+				 	<span p-html="report.buttons.titleB"></span>
+				 	<span p-html="report.buttons.titleC"></span>
+				 	<span p-html="report.buttons.titleD"></span>
+				 </div>
+			</dd>
+		</dl>
+		<!--筛选 end --> 
+
+		<!--search begin -->
+		<dl class="search">
+			<dt>
+
+			</dt>
+			<dd class="closed">
+				<span></span>
+			</dd>
+		</dl> 
+		<!--search end --> 
+
+		<dl class="dataTitle">
+			<dt>
+				<i></i>
+				<h2 p-html="report.dataTitle"></h2>
+			</dt>
+		</dl>
+
+		<!--tabs begin-->
+		<div id="tabContent" class="tabs">
+
+		</div>
+		<div><!--所有Tab的初始化信息-->
+			<div id="tab1">
+				WUI：<a target="_blank" href="http://www.flybirdsoft.com/WUI">www.flybirdsoft.com/WUI</a>
+			</div>
+			<div id="tab2">
+				作者：邬畏畏
+			</div>
+			<div id="tab3">
+				更多组件请访问网址
+			</div>
+		</div><!-- end -->
+		<!--tabs  end -->
+	</div>
+	<!--container end-->
+</div>
+<!--main end-->
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/painter.min.js"></script>
+<script type="text/javascript" src="js/wTab-min.js"></script>
+<script type="text/javascript" src="js/ajaxCore.min.js"></script>
+
+<script type="text/javascript">
+
+/*语言国际化的数据，如需要可动态请求后端获取*/
+var app = {
+	lunguage_cn : {
+	"report.title" : "你的报表信息",
+	"report.searchTitle" : "筛选条件",
+	"report.dataTitle" : "数据统计",
+	"report.buttons.titleA" : "北京",
+	"report.buttons.titleB" : "上海",
+	"report.buttons.titleC" : "包头",
+	"report.buttons.titleD" : "内蒙古",
+	"report.tabs.tab0" : "tab标签一",
+	"report.tabs.tab1" : "tab标签二",
+	"report.tabs.tab2" : "tab标签三"
+	},
+	lunguage_en : {
+	"report.title" : "Your report Infomatioin",
+	"report.searchTitle" : "condition",
+	"report.dataTitle" : "data statistics",
+	"report.buttons.titleA" : "Beijing",
+	"report.buttons.titleB" : "Shanghai",
+	"report.buttons.titleC" : "Baotou",
+	"report.buttons.titleD" : "Neiminggu",
+	"report.tabs.tab0" : "tabA",
+	"report.tabs.tab1" : "tabB",
+	"report.tabs.tab2" : "tabC"
+	},
+};
+
+
+/*********************************
+语言国际化组件的应用
+
+注意：本实例中tab组件是动态生成的，
+需要单独对Tab标签处理，本实例中不体现
+*********************************/
+app.initLanguage = function (code) {
+	/*
+	code = "en|cn"
+	*/
+	var language = new painter("#app");/*#app 是 body*/
+	if(code=="cn")
+	{
+		language.fill(app.lunguage_cn);
+	}
+	else
+	{
+		language.fill(app.lunguage_en);
+	}
+}
+
+
+/*****************************
+wTab 组件的使用
+
+注意：此UI组件需要附带样式，请查看core.css，
+根据需求我们可以修改wTabUI组件的样式去使用不同的UI风格
+*****************************/
+app.initTab = function(){
+
+	var tab = new wTab();
+	tab.addTab("tab页签一","tab1");
+	tab.addTab("tab页签二","tab2");
+	tab.addTab("tab页签二","tab3");
+	tab.isdivtab=false;
+	tab.click=function(index){
+	  	
+	}
+	tab.initTab("tabContent"); 
+
+	/*
+	tab标签页是动态生成的，此处单独处理
+	*/
+	$("#tabContent #Tab0").attr("p-html","report.tabs.tab0");
+	$("#tabContent #Tab1").attr("p-html","report.tabs.tab1");
+	$("#tabContent #Tab2").attr("p-html","report.tabs.tab2");
+}
+
+
+
+
+/*************************
+异步ajax管理组件
+
+管理多个ajax请求的处理顺序
+需要引入Jquery
+*************************/
+app.asyncAjax = function(){
+
+	ajaxCore.ajax({
+		url:"json/json1.json",
+		dataType:"json"
+	}).success(function(data){
+		/*先处理*/
+		alert("name:" + data.name + "\n age:" +data.age);
+	}).ajax({
+		url:"json/json2.json"  /*dataType默认是html*/
+	}).success(function(data){
+		/*后处理*/
+		alert(data);
+	});	
+}
+
+
+
+app.bindEvent = function(){
+	$(".language").bind("click",function(){
+		var text = this.innerHTML;
+		
+		if(text.indexOf("英文")>0)
+		{
+			app.initLanguage("en");
+			this.innerHTML = "语言切换(中文)";
+		}
+		else
+		{
+			app.initLanguage("cn");
+			this.innerHTML = "语言切换(英文)";
+		}
+	});
+
+	$(".asyncAjax").bind("click",function(){
+		app.asyncAjax();
+	});
+
+
+}
+
+/*######################################*/
+/*启动程序*/
+app.initLanguage("cn");
+
+app.initTab();
+
+app.bindEvent();
+
+</script>
